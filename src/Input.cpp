@@ -275,10 +275,7 @@ void Input::setupDefaultBindings() {
     bindAction("quit", GLFW_KEY_ESCAPE);
 }
 
-void Input::handleKey(int key, int scancode, int action, int mods) {
-    (void)scancode;
-    (void)mods;
-    
+void Input::handleKey(int key, [[maybe_unused]] int scancode, int action, [[maybe_unused]] int mods) {
     if (action == GLFW_PRESS) {
         m_keyStates[key] = KeyState::PRESSED;
         
@@ -299,9 +296,7 @@ void Input::handleMouseMove(double xpos, double ypos) {
     }
 }
 
-void Input::handleMouseButton(int button, int action, int mods) {
-    (void)mods;
-    
+void Input::handleMouseButton(int button, int action, [[maybe_unused]] int mods) {
     if (action == GLFW_PRESS) {
         m_mouseButtonStates[button] = KeyState::PRESSED;
     } else if (action == GLFW_RELEASE) {
@@ -309,8 +304,7 @@ void Input::handleMouseButton(int button, int action, int mods) {
     }
 }
 
-void Input::handleScroll(double xoffset, double yoffset) {
-    (void)xoffset;
+void Input::handleScroll([[maybe_unused]] double xoffset, double yoffset) {
     m_accumulatedScroll += static_cast<float>(yoffset);
     
     for (auto& callback : m_scrollCallbacks) {

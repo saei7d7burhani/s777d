@@ -78,10 +78,8 @@ Mesh& Mesh::operator=(Mesh&& other) noexcept {
 // Rendering
 // =============================================================================
 
-void Mesh::draw(const Shader& shader) const {
-    (void)shader; // Shader is used for texture binding in full implementation
-    
-    // Bind textures
+void Mesh::draw([[maybe_unused]] const Shader& shader) const {
+    // Bind textures if any are available
     unsigned int diffuseNr = 0;
     unsigned int specularNr = 0;
     

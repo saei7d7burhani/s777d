@@ -168,7 +168,7 @@ void Application::update(float deltaTime) {
     }
 }
 
-void Application::fixedUpdate(float fixedDeltaTime) {
+void Application::fixedUpdate([[maybe_unused]] float fixedDeltaTime) {
     // Physics updates would go here
     // For now, we just handle collision
     
@@ -183,7 +183,6 @@ void Application::fixedUpdate(float fixedDeltaTime) {
             car->setPosition(constrainedPos);
         }
     }
-    (void)fixedDeltaTime;  // Silence unused warning
 }
 
 void Application::render() {
